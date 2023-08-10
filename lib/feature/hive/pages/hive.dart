@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
@@ -54,10 +53,12 @@ class _HomePageState extends State<HomePage> {
   Future<void> delete(int itemKey) async {
     await shopBox.delete(itemKey);
     refresh();
-
-    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(S.of(context).text_delete)));
+  }
+
+  Future<void> theme(Map<String, dynamic> saveBool) async {
+    await shopBox.add(saveBool);
   }
 
   void _showButtomSheet(BuildContext ctx, int? itemKey) async {
@@ -72,10 +73,11 @@ class _HomePageState extends State<HomePage> {
         elevation: 5,
         builder: (_) => Container(
               padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(ctx).viewInsets.bottom,
-                  left: 15,
-                  top: 15,
-                  right: 15),
+                bottom: MediaQuery.of(ctx).viewInsets.bottom,
+                left: 15,
+                top: 15,
+                right: 15,
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

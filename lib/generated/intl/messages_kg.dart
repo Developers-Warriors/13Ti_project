@@ -21,5 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'kg';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "text_delete": MessageLookupByLibrary.simpleMessage("Заметка жок")
+      };
 }
