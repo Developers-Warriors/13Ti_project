@@ -1,7 +1,9 @@
 // import 'package:abstracts/feature/go_router/pages/go_router.dart';
 // import 'package:abstracts/feature/go_router/widgets/app_routes.dart';
+// import 'package:abstracts/feature/hive/pages/hive.dart';
 import 'package:flutter/material.dart';
 // import 'feature/go_router/widgets/navigatorKey.dart';
+import 'core/ui/widgets/awesome_snackbar_content.dart';
 import 'feature/go_router/widgets/navigatorKey.dart';
 import 'generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -10,8 +12,7 @@ import 'package:hive_flutter/adapters.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  
+
   await Hive.initFlutter();
   await Hive.openBox('shop_box');
   await Hive.openBox('box');
@@ -30,9 +31,6 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       // routes: AppRoutes,
       // initialRoute: "HomeScreens",
-      // onGenerateRoute: AppRoutes(),
-      // routeInformationParser: AppRoutes().generateRoute.routeInformationParser,
-      // routerDelegate: AppRoutes().generateRoute.routerDelegate,
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [Locale('ru'), Locale('kg')],
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
-      // home: HomePage(),
+      home: AwesomeSnackbarContentWidgets(),
     );
   }
 }
