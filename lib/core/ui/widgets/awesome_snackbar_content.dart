@@ -85,7 +85,7 @@ class AwesomeSnackbarContentWidgets extends StatelessWidget {
           Center(
             child: FilledButton(
               onPressed: () {
-                snackBarMaterila(context);
+                awesomeSnackbarSuccess(context);
                 // var snackbar = SnackBar(
                 //   elevation: 0,
                 //   backgroundColor: Colors.transparent,
@@ -104,7 +104,7 @@ class AwesomeSnackbarContentWidgets extends StatelessWidget {
           Center(
             child: FilledButton(
               onPressed: () {
-                awesomeSnackbarError(context);
+                awesomeSnackbarWarning(context);
               },
               child: Text('error'),
             ),
