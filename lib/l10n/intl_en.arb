@@ -1,6 +1,7 @@
 {
   "title_hiveTest": "Hello HiveTest",
   "subtitle_hivetest": "HiveTest",
-  "text_delete":"Заметка была удалена"
+  "text_delete":"Заметка была удалена",
+  "text_error_connect":"Плохое соеденинение"
   
 }

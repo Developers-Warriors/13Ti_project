@@ -79,6 +79,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Плохое соеденинение`
+  String get text_error_connect {
+    return Intl.message(
+      'Плохое соеденинение',
+      name: 'text_error_connect',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
