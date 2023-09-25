@@ -1,5 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+import 'package:abstracts/core/network/_network.dart';
 
 class DioSettings {
   DioSettings() {
@@ -8,36 +7,21 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: '',
-      contentType: 'application/json',
-      headers: {'Accept': 'application/json'},
-      connectTimeout: const Duration(seconds: 20),
-      receiveTimeout: const Duration(seconds: 20),
+      baseUrl: Endpoints.baseUrl,
+      contentType: Endpoints.connectionType,
+      connectTimeout: Endpoints.connectionTimeout,
+      receiveTimeout: Endpoints.receiveTimeout,
     ),
   );
 
-  void setup() async {
-    final interceptors = dio.interceptors;
+  Future<void> setup() async {
+    final Interceptors interceptors = dio.interceptors;
 
     interceptors.clear();
 
-    final logInterceptor = LogInterceptor(
-      request: true,
-      requestBody: true,
-      requestHeader: true,
-      responseBody: true,
-      responseHeader: true,
-    );
-
-    final headerInterceptors = QueuedInterceptorsWrapper(
-      onRequest: (options, handler) => handler.next(options),
-      onError: (DioError error, handler) {
-        handler.next(error);
-      },
-      onResponse: (response, handler) {
-        return handler.next(response);
-      },
-    );
-    interceptors.addAll([if (kDebugMode) logInterceptor, headerInterceptors]);
+    interceptors.addAll([
+      ConnectionInterceptor(),
+      LoggerInterceptor(),
+    ]);
   }
 }

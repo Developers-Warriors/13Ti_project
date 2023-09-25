@@ -11,6 +11,10 @@ class AMultiBlocProvider extends StatelessWidget {
       BlocProvider(
         create: (context) => PostCubit(),
       ),
+      BlocProvider(
+        create: (context) =>
+            RickAndMortyBloc(repo: RepositoryProvider.of<RickRepo>(context)),
+      ),
     ], child: app);
   }
 }

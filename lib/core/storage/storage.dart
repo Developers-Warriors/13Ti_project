@@ -5,6 +5,7 @@ class SecureStorage {
   static const keyValue = 'token';
   static const accessToken = 'accessToken';
   static const isLogin = 'isLogin';
+  static const isRefreshToken = 'refreshToken';
 
   Future<void> writeSecureData(String key, String value) async {
     await storage.write(key: key, value: value);
@@ -35,6 +36,15 @@ class SecureStorage {
 
   Future<bool> readIsLogin() async {
     bool value = await readSecureData(isLogin) == 'true';
+    return value;
+  }
+
+  Future<void> writeRefreshToken(String token) async {
+    await writeSecureData(isRefreshToken, token);
+  }
+
+  Future<String> readRefreshToken() async {
+    String value = await readSecureData(isRefreshToken);
     return value;
   }
 }

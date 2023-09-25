@@ -22,6 +22,7 @@ class HomeScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<PostCubit>(context).fetchPost();
     return Scaffold(
       appBar: AppBar(
         title: Text('API'),

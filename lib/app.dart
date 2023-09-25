@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [Locale('ru'), Locale('kg')],
+      supportedLocales: S.delegate.supportedLocales,  
+      // supportedLocales: [Locale('ru'), Locale('kg')],
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
-      home: FilePDF(),
+      home: HomeScreens(),
     );
   }
 }
-

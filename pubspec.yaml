@@ -35,6 +35,8 @@ dependencies:
   cloud_firestore: ^4.9.1
   easy_pdf_viewer: ^1.0.7
   file_picker: ^5.5.0
+  logger: ^2.0.2
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   flutter_test:

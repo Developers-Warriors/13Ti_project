@@ -1,23 +1,23 @@
-// part of 'main.dart';
-// part of 'main.dart';
+part of 'main.dart';
 
-// import 'package:abstracts/feature/pagination_test/data/repo/pagination.dart';
+class AMultiRepoProvider extends StatelessWidget {
+  const AMultiRepoProvider({super.key, required this.aMultiBlocProvider});
 
-// class AMultiRepoProvider extends StatelessWidget {
-//   const AMultiRepoProvider({super.key, required this.aMultiBlocProvider});
+  final AMultiBlocProvider aMultiBlocProvider;
 
-//   final AMultiBlocProvider aMultiBlocProvider;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MultiRepositoryProvider(
-//       providers: [
-//         RepositoryProvider(
-//           create: (context) => PaginationRepo(),
-//         ),
+  @override
+  Widget build(BuildContext context) {
+    return MultiRepositoryProvider(
+      providers: [
+         RepositoryProvider(
+          create: (context) => DioSettings(),
+        ),
+        RepositoryProvider(
+          create: (context) => RickRepo(dio: RepositoryProvider.of<DioSettings>(context).dio),
+        ),
        
-//       ],
-//       child: aMultiBlocProvider,
-//     );
-//   }
-// }
+      ],
+      child: aMultiBlocProvider,
+    );
+  }
+}

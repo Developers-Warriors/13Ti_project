@@ -45,7 +45,7 @@ class _FilePDFState extends State<FilePDF> {
     }
   }
 
-  void getPDF() async {
+  void getPDFdownload() async {
     final result = await _firebaseFirestore.collection('pdfs').get();
 
     pdfData = result.docs.map((e) => e.data()).toList();
@@ -60,32 +60,39 @@ class _FilePDFState extends State<FilePDF> {
 
   @override
   Widget build(BuildContext context) {
-    getPDF();
+    getPDFdownload();
     return Scaffold(
-      body: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: pdfData.length,
+      body: ListView(
         shrinkWrap: true,
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PDFViewerScreens(
-                      urlPdf: pdfData[index]['url'],
-                    ),
-                  ));
+        children: [
+          GridView.builder(
+            physics: NeverScrollableScrollPhysics(),            
+            itemCount: pdfData.length,
+            shrinkWrap: true,
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (BuildContext context, int index) {
+              return pdfData.isEmpty
+                  ? const SizedBox.shrink()
+                  : InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PDFViewerScreens(
+                                urlPdf: pdfData[index]['url'],
+                              ),
+                            ));
+                      },
+                      child: Card(
+                        child: Center(
+                          child: Text(pdfData[index]['name']),
+                        ),
+                      ),
+                    );
             },
-            child: Card(
-              child: Center(
-                child: Text(pdfData[index]['name']),
-              ),
-            ),
-          );
-        },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.picture_as_pdf_outlined),

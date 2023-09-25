@@ -10,20 +10,21 @@ part 'post_state.dart';
 
 class PostCubit extends Cubit<PostState> {
   PostCubit() : super(PostInitial()) {
-    fetchPost();
+    //* Можно вызвать BlocProvider здесь не вызывая до того будет соибратся приложение (return)
+    // fetchPost();
   }
-
-  PostRepo postRepo = PostRepo();
 
   void fetchPost() async {
     try {
       List<PostModel> posts = await postRepo.fetchPost();
       emit(PostSuccess(posts));
     } on DioException catch (e) {
-      if (e.error == DioErrorType.unknown) {
-        emit(PostError('Проврка инета'));
-      }
+      // if (e.error == DioErrorType.unknown) {
+      //   emit(PostError('Проврка инета'));
+      // } 
       emit(PostError(e.type.toString()));
     }
   }
+
+  PostRepo postRepo = PostRepo();
 }
