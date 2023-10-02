@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       // supportedLocales: [Locale('ru'), Locale('kg')],
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
-      home: HomeScreens(),
+      home: JsonPHDPage(),
     );
   }
 }

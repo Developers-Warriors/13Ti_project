@@ -1,16 +1,18 @@
-import 'package:abstracts/core/network/Interceptors/dio_setings.dart';
-import 'package:abstracts/core/ui/_ui.dart';
-import 'package:abstracts/feature/_feature.dart';
-import 'package:abstracts/feature/dio_settings/state/cubit/post_cubit.dart';
+
+//* package
+import 'package:abstracts/feature/testings_api/pages/json_phd.dart';
 import 'package:abstracts/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'feature/dio_settings/pages/_pages.dart';
-
-import 'feature/go_router/widgets/navigatorKey.dart';
-import 'generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+//* feature
+import 'package:abstracts/feature/_feature.dart';
+import 'package:abstracts/core/ui/_ui.dart';
+import 'package:abstracts/core/network/_network.dart';
+import 'feature/go_router/widgets/navigatorKey.dart';
+
+
+//*
 part 'app.dart';
 part 'a_multi_repository_provider.dart';
 part 'a_multi_bloc_provider.dart';

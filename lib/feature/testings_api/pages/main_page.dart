@@ -7,19 +7,19 @@ class TestAPi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<RickAndMortyBloc>(context).add(AnimeEvent(amout: 1));
+    BlocProvider.of<RickAndMortyBloc>(context).add(GetRickAndMortyEvent());
     return Scaffold(
       appBar: buildAppBar(context),
       body: BlocBuilder<RickAndMortyBloc, RickAndMortyState>(
         builder: (context, state) {
-          if (state is AnimeSuccess) {
+          if (state is RickAndMortySuccess) {
             return ListView.builder(
               shrinkWrap: true,
-              itemCount: state.model.length,
+              itemCount: state.model.results!.length,
               itemBuilder: (BuildContext contex, int index) {
                 return CardWidget(
-                  title: state.model[index].results!.animeName ?? '',
-                  imageURL: state.model[index].results!.url ??
+                  title: state.model.results![index].name ?? '',
+                  imageURL: state.model.results![index].image ??
                       'https://play-lh.googleusercontent.com/qbeCduZblOk80GaY164lw47gIRjXq9QIzSmgFwqQj1PyhNhTWxYR0OqPzm8BumnmJQ',
                 );
               },
