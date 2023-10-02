@@ -97,16 +97,21 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                         onPressed: () {
                           if (itemKey == null) {
-                            createItem({
-                              'name': nameController.text,
-                              'quant': quantController.text
-                            });
+                            createItem(
+                              {
+                                'name': nameController.text,
+                                'quant': quantController.text
+                              },
+                            );
                           }
                           if (itemKey != null) {
-                            upDateItem(itemKey, {
-                              'name': nameController.text.trim(),
-                              'quant': quantController.text.trim(),
-                            });
+                            upDateItem(
+                              itemKey,
+                              {
+                                'name': nameController.text.trim(),
+                                'quant': quantController.text.trim(),
+                              },
+                            );
                           }
 
                           nameController.text = '';

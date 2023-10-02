@@ -1,8 +1,4 @@
-
-
-
 import 'package:abstracts/core/ui/_ui.dart';
-
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -18,7 +14,7 @@ class ErrorPage extends StatelessWidget {
               S.of(context).text_error_connect,
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                fontSize: 45,
+                fontSize: 100,
                 color: Colors.red,
               ),
             ),

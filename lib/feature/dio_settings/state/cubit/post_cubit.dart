@@ -13,7 +13,6 @@ class PostCubit extends Cubit<PostState> {
     //* Можно вызвать BlocProvider здесь не вызывая до того будет соибратся приложение (return)
     // fetchPost();
   }
-
   void fetchPost() async {
     try {
       List<PostModel> posts = await postRepo.fetchPost();
@@ -21,7 +20,8 @@ class PostCubit extends Cubit<PostState> {
     } on DioException catch (e) {
       // if (e.error == DioErrorType.unknown) {
       //   emit(PostError('Проврка инета'));
-      // } 
+      // }
+      //
       emit(PostError(e.type.toString()));
     }
   }

@@ -1,9 +1,14 @@
 name: abstracts
 description: A new Flutter project.
+version: 1.0.0+2
+# homepage: https://dcm.dev/
+repository: https://github.com/i3tika/abstracts
+issue_tracker: https://github.com/i3tika/abstracts/issues
+# documentation: https://dcm.dev/docs/getting-started/
+
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
 
 environment:
   sdk: '>=3.0.2 <4.0.0'
@@ -37,6 +42,8 @@ dependencies:
   file_picker: ^5.5.0
   logger: ^2.0.2
   json_annotation: ^4.8.1
+  shared_preferences: ^2.2.1
+  talker_dio_logger: ^2.3.0
 
 dev_dependencies:
   flutter_test:

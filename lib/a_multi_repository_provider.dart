@@ -9,13 +9,17 @@ class AMultiRepoProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-         RepositoryProvider(
+        RepositoryProvider(
           create: (context) => DioSettings(),
         ),
         RepositoryProvider(
-          create: (context) => RickRepo(dio: RepositoryProvider.of<DioSettings>(context).dio),
+          create: (context) =>
+              RickRepo(dio: RepositoryProvider.of<DioSettings>(context).dio),
         ),
-       
+        RepositoryProvider(
+          create: (context) =>
+              JsonPHDRepo(dio: RepositoryProvider.of<DioSettings>(context).dio),
+        ),
       ],
       child: aMultiBlocProvider,
     );

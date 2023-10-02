@@ -21,6 +21,7 @@ class DioSettings {
 
     interceptors.addAll([
       ConnectionInterceptor(),
+      // ALogInterceptor(),
       LoggerInterceptor(),
     ]);
   }

@@ -9,4 +9,9 @@ class Endpoints {
 
   //* Types
   static const String connectionType = 'application/json';
+
+
+
+  //* API
+  static const String jsonPHD = 'https://jsonplaceholder.typicode.com/posts';
 }
